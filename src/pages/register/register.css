@@ -1,69 +1,67 @@
-body{
-    margin:0;
+body {
+  margin: 0;
 }
 .registerContainer {
-    height: 100vh;
-    background: url('../../assets/background.jpg');
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  background: url("../../assets/background.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.registerFormWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 75vh;
-    width: 60vh;
-    
+.registerFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75vh;
+  width: 60vh;
 }
 
-h2,p {
-    color: white;
-    font-family:cursive;
-    font-weight: bolder;
+.header,
+.paragaph-one {
+  color: white;
+  font-family: cursive;
+  font-weight: bolder;
 }
-p {
-    font-size: large;
-    font-weight: bold;
+.paragaph-one {
+  font-size: large;
+  font-weight: bold;
 }
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-input{
-    padding: 10px;
-    width: 40vh;
-    border: none;
-    border-radius:5px;
- 
+input {
+  padding: 10px;
+  width: 40vh;
+  border: none;
+  border-radius: 5px;
 }
- input::placeholder {
-    font-family:cursive;
-    text-align: center;
- }
- input:focus{
-    outline: none;
-    box-shadow: 0 0 0 3px dodgerblue;
- }
+input::placeholder {
+  font-family: cursive;
+  text-align: center;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px dodgerblue;
+}
 
- button {
-    padding: 10px;
-    border-radius: 10px;
-    border: 0;
-    color: #fff;
-    background-color: dodgerblue;
-    font-weight: bold;
- }
- button:hover{
-    cursor: pointer;
-    background-color: green;
-    padding: 12px;
- }
- a{
-    color: gold
- }
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  color: #fff;
+  background-color: dodgerblue;
+  font-weight: bold;
+}
+button:hover {
+  cursor: pointer;
+  background-color: green;
+  padding: 12px;
+}
+.formLink {
+  text-decoration: none;
+  color: greenyellow;
+}
