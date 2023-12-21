@@ -44,6 +44,7 @@ input{
 }
  input::placeholder {
     font-family:cursive;
+    text-align: center;
  }
  input:focus{
     outline: none;
