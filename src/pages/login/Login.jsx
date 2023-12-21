@@ -3,10 +3,10 @@ import './login.css'
 import { Link } from 'react-router-dom'
 const Login = () => {
   return (
-    <div className="container">
-        <div className="formWrapper">
+    <div className="loginContainer">
+        <div className="loginFormWrapper">
             <h2>Secret Diary</h2>
-            <p>Keep your thaught securly!</p>
+            <p>Keep your thoughts freely and securely!</p>
             <p>Welcome back</p>
             <form>
                 <input type="text" name="username" id="username" placeholder='Your Username' />

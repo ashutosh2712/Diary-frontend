@@ -1,20 +1,19 @@
 body{
     margin:0;
 }
-.container {
+.loginContainer {
     height: 100vh;
-    background: url('../../assets/background.jpg');
+    background: url('../../assets/diary.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.formWrapper{
+.loginFormWrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 60vh;
     width: 60vh;
-    border-radius: 10px;
 }
 
 h2,p {

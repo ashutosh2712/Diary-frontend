@@ -1,20 +1,20 @@
 body{
     margin:0;
 }
-.container {
+.registerContainer {
     height: 100vh;
     background: url('../../assets/background.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.formWrapper{
+.registerFormWrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 60vh;
+    height: 75vh;
     width: 60vh;
-    border-radius: 10px;
+    
 }
 
 h2,p {
