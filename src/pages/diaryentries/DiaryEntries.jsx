@@ -1,12 +1,13 @@
 import React from "react";
 import "./diaryentries.css";
 import { Link } from "react-router-dom";
+import Add from "../../assets/add.png";
 const DiaryEntries = () => {
   return (
     <div className="diaryEntriesContainer">
       <div className="diaryEntriesWrapper">
         <div className="diaryEntriesHeader">
-          <h2>Entries</h2>
+          <h2 className="diaryEntriesTitle">&#9782; Your Entries</h2>
           <p>3</p>
         </div>
         <div className="diaryEntriesList">
@@ -25,6 +26,9 @@ const DiaryEntries = () => {
             </p>
           </Link>
         </div>
+        <Link to="/entries" className="button-float">
+          <img src={Add} alt="" className="button-img" />
+        </Link>
       </div>
     </div>
   );

@@ -12,8 +12,9 @@
   opacity: 0.65;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: auto;
   border-radius: 5px;
+  position: relative;
 }
 
 .diaryEntriesHeader {
@@ -21,6 +22,12 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 15px 0 15px;
+}
+
+.diaryEntriesTitle {
+  font-family: cursive;
+  color: #f65757;
+  font-weight: bolder;
 }
 
 .diaryEntriesList {
@@ -40,4 +47,22 @@
 .entryLink {
   text-decoration: none;
   color: inherit;
+}
+
+.button-float {
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  height: 60px;
+  width: 60px;
+  background-color: #f65757;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-img {
+  width: 48px;
+  height: 48px;
 }
