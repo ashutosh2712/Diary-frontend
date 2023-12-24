@@ -48,7 +48,18 @@
   text-decoration: none;
   color: inherit;
 }
-
+.logoutButton {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  height: 35px;
+  width: 35x;
+  background-color: #f65757;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .button-float {
   position: absolute;
   bottom: 24px;

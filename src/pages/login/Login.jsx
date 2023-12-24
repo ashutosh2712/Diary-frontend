@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 const Login = () => {
   const [formData, setformData] = useState({
     username: "",
@@ -9,6 +10,7 @@ const Login = () => {
   const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
+  const { loginAuth } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +37,11 @@ const Login = () => {
 
       setMessage({
         text: data.success ? "*You are logged in" : data.error,
-        type: data.succes ? "success" : "error",
+        type: data.success ? "success" : "error",
       });
 
       if (data.success) {
+        loginAuth();
         navigate("/");
       }
     } catch (error) {
@@ -76,6 +79,11 @@ const Login = () => {
 
           <button type="submit">Login</button>
         </form>
+        {message && (
+          <p style={{ color: message.type === "success" ? "green" : "red" }}>
+            {message.text}
+          </p>
+        )}
         <p className="paragaph-one">
           Don't have an account?{" "}
           <Link className="formLink" to="/register">

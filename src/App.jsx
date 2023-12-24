@@ -1,4 +1,5 @@
 import "./App.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 import DiaryEntries from "./pages/diaryentries/DiaryEntries";
 import DiaryEntry from "./pages/diaryentry/DiaryEntry";
 import Login from "./pages/login/Login";
@@ -9,10 +10,25 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<DiaryEntries />}></Route>
-          <Route path="entries" element={<DiaryEntry />}></Route>
-          <Route path="login" element={<Login />}></Route>
-          <Route path="register" element={<Register />}></Route>
+          {/* <Route index element={<DiaryEntries />}></Route> */}
+          <Route
+            index
+            element={
+              <ProtectedRoute>
+                <DiaryEntries />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="entries"
+            element={
+              <ProtectedRoute>
+                <DiaryEntry />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
