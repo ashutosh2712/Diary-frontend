@@ -12,7 +12,6 @@
   opacity: 0.65;
   display: flex;
   flex-direction: column;
-  overflow: auto;
   border-radius: 5px;
   position: relative;
 }
@@ -32,12 +31,17 @@
 
 .diaryEntriesList {
   margin: 0 15px 0 15px;
+  width: 70vh;
+  overflow-y: auto;
 }
 
 .diaryEntriesListItem {
   border-bottom: 1px solid lightgrey;
   cursor: pointer;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-family: cursive;
 }
 .diaryEntriesListItem:hover {
   background-color: #d6d1d1;

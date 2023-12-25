@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./diaryentries.css";
-import { Link } from "react-router-dom";
-import Add from "../../assets/add.png";
 import LogoutButton from "../../components/LogoutButton";
 import { useUser } from "../../context/UserContext";
 import { useAuth } from "../../context/AuthContext";
+import DiaryEntriesList from "../../components/DiaryEntriesList";
+import AddButton from "../../components/AddButton";
 const DiaryEntries = () => {
   const { user, setUser } = useUser();
   const { getAuthToken } = useAuth();
@@ -41,20 +41,12 @@ const DiaryEntries = () => {
           <p>{userDiaryEntries.length}</p>
         </div>
         <div className="diaryEntriesList">
-          <ul>
-            {userDiaryEntries.map((entry, index) => (
-              <Link to={`/entries/${entry.id}`} className="entryLink">
-                <li key={index} className="diaryEntriesListItem">
-                  {entry.body}
-                </li>
-              </Link>
-            ))}
-          </ul>
+          {userDiaryEntries.map((entry, index) => (
+            <DiaryEntriesList key={index} entry={entry} />
+          ))}
         </div>
         <LogoutButton />
-        <Link to="/entries/new" className="button-float">
-          <img src={Add} alt="" className="button-img" />
-        </Link>
+        <AddButton />
       </div>
     </div>
   );

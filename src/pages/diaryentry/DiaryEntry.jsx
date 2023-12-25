@@ -83,7 +83,6 @@ const DiaryEntry = () => {
       <div className="diaryEntryWrapper">
         <div className="diaryEntryHeader">
           <img src={LeftArrow} className="backEntry" onClick={handleSubmit} />
-
           {entryId !== "new" ? (
             <div className="doneEntry" onClick={deleteDiaryEntry}>
               Delete
