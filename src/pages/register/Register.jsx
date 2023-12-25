@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +12,6 @@ const Register = () => {
 
   const [messsage, setMessage] = useState(null);
   const navigate = useNavigate();
-  const { loginAuth } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,8 +48,7 @@ const Register = () => {
       });
 
       if (data.success) {
-        loginAuth();
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);

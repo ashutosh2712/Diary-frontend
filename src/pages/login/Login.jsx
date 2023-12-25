@@ -10,7 +10,7 @@ const Login = () => {
   const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
-  const { loginAuth } = useAuth();
+  const { loginAuth, updateAuthToken } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,8 +32,8 @@ const Login = () => {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-
-      console.log(data);
+      const newAuthToken = data.token;
+      updateAuthToken(newAuthToken);
 
       setMessage({
         text: data.success ? "*You are logged in" : data.error,
