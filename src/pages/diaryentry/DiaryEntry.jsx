@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./diaryentry.css";
 import LeftArrow from "../../assets/leftArrow.png";
 import { useNavigate, useParams } from "react-router-dom";
+import Login from "../login/Login";
+import { useAuth } from "../../context/AuthContext";
 const DiaryEntry = () => {
   const { id } = useParams();
   const entryId = id;
 
   const navigate = useNavigate();
   const [diaryEntry, setDiaryEntry] = useState(null);
+  const { getAuthToken } = useAuth();
 
   useEffect(() => {
     getDiaryEntry();
@@ -21,7 +24,21 @@ const DiaryEntry = () => {
     const data = await response.json();
     setDiaryEntry(data);
   };
-
+  const createDiaryEntry = async () => {
+    try {
+      const authToken = getAuthToken();
+      fetch(`http://127.0.0.1:8000/api/entries/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${authToken}`,
+        },
+        body: JSON.stringify(diaryEntry),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const updateDiaryEntry = async () => {
     try {
       fetch(`http://127.0.0.1:8000/api/entries/${entryId}/update`, {
@@ -36,8 +53,28 @@ const DiaryEntry = () => {
     }
   };
 
+  const deleteDiaryEntry = () => {
+    try {
+      fetch(`http://127.0.0.1:8000/api/entries/${entryId}/delete`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = () => {
-    updateDiaryEntry();
+    if (entryId != "new" && !diaryEntry.body) {
+      deleteDiaryEntry();
+    } else if (entryId != "new") {
+      updateDiaryEntry();
+    } else if (entryId == "new" && diaryEntry.body !== null) {
+      createDiaryEntry();
+    }
     navigate("/");
   };
 
@@ -46,7 +83,16 @@ const DiaryEntry = () => {
       <div className="diaryEntryWrapper">
         <div className="diaryEntryHeader">
           <img src={LeftArrow} className="backEntry" onClick={handleSubmit} />
-          <div className="doneEntry">Done</div>
+
+          {entryId !== "new" ? (
+            <div className="doneEntry" onClick={deleteDiaryEntry}>
+              Delete
+            </div>
+          ) : (
+            <div className="doneEntry" onClick={handleSubmit}>
+              Done
+            </div>
+          )}
         </div>
         <div className="diaryBody">
           <textarea
