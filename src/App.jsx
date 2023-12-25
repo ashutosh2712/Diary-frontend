@@ -20,7 +20,7 @@ function App() {
             }
           />
           <Route
-            path="entries"
+            path="entries/:id"
             element={
               <ProtectedRoute>
                 <DiaryEntry />

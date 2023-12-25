@@ -41,18 +41,18 @@ const DiaryEntries = () => {
           <p>{userDiaryEntries.length}</p>
         </div>
         <div className="diaryEntriesList">
-          <Link to="/entries" className="entryLink">
-            <ul>
-              {userDiaryEntries.map((entry) => (
-                <li key={entry.id} className="diaryEntriesListItem">
+          <ul>
+            {userDiaryEntries.map((entry, index) => (
+              <Link to={`/entries/${entry.id}`} className="entryLink">
+                <li key={index} className="diaryEntriesListItem">
                   {entry.body}
                 </li>
-              ))}
-            </ul>
-          </Link>
+              </Link>
+            ))}
+          </ul>
         </div>
         <LogoutButton />
-        <Link to="/entries" className="button-float">
+        <Link to="/entries/new" className="button-float">
           <img src={Add} alt="" className="button-img" />
         </Link>
       </div>
