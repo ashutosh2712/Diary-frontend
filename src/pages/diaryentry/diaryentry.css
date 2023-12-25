@@ -33,6 +33,7 @@
 .doneEntry:hover,
 .backEntry:hover {
   color: green;
+  cursor: pointer;
 }
 
 .diaryBody {
